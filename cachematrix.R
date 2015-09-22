@@ -53,21 +53,21 @@ makeCacheMatrix <- function(x = matrix()) {
 ## using "solve" and store it in cache.
 
 cacheSolve <- function(x, ...) {
-		## read cached inverse
+	## read cached inverse
         inv <- x$getinv()
 		
-		## if inv is not NULL, means the matrix is not new nor
-		## changed. so output the cached inverse.
+	## if inv is not NULL, means the matrix is not new nor
+	## changed. so output the cached inverse.
         if(!is.null(inv)) {
                 message("getting cached inverse")
                 return(inv)
         }
 		
-		## otherwise, get the matrix and solve it
+	## otherwise, get the matrix and solve it
         ma <- x$get()
         inv <- solve(mat)
 		
-		## set the new inverse and return the result
+	## set the new inverse and return the result
         x$setinv(inv)
         inv
 }
