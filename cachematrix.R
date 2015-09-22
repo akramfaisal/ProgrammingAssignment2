@@ -21,29 +21,29 @@
 ## 4. Set the value of the inverse
 
 makeCacheMatrix <- function(x = matrix()) {
-		## set the inv to NULL (i.e. not calculated yet)
-		inv <- NULL
-		
-		## set the value of the matrix from input (y)
-		set <- function(y) {
-				x <<- y
-				## set inverse to NULL since matix has changed
-				inv <<- NULL 
-		}
-		
-		## get matrix
-		get <- function() x
-		
-		## set the inverse of this matrix (cache)
-		setinv <- function(inverse) inv <<- inverse
-		
-		## get the nverse of this matrix (cache)
-		getinv <- function() inv
-		
-		## list the methods for function call
-		list(set = set, get = get,
-			 setinv = setinv,
-			 getinv = getinv)
+	## set the inv to NULL (i.e. not calculated yet)
+	inv <- NULL
+	
+	## set the value of the matrix from input (y)
+	set <- function(y) {
+		x <<- y
+		## set inverse to NULL since matix has changed
+		inv <<- NULL 
+	}
+	
+	## get matrix
+	get <- function() x
+	
+	## set the inverse of this matrix (cache)
+	setinv <- function(inverse) inv <<- inverse
+	
+	## get the nverse of this matrix (cache)
+	getinv <- function() inv
+	
+	## list the methods for function call
+	list(set = set, get = get,
+	      setinv = setinv,
+	      getinv = getinv)
 }
 
 
@@ -55,20 +55,20 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
 	## read cached inverse
-        inv <- x$getinv()
-		
+	inv <- x$getinv()
+	
 	## if inv is not NULL, means the matrix is not new nor
 	## changed. so output the cached inverse.
-        if(!is.null(inv)) {
-                message("getting cached inverse")
-                return(inv)
-        }
-		
+	if(!is.null(inv)) {
+		message("getting cached inverse")
+		return(inv)
+	}
+	
 	## otherwise, get the matrix and solve it
-        mat <- x$get()
-        inv <- solve(mat)
-		
+	mat <- x$get()
+	inv <- solve(mat)
+	
 	## set the new inverse and return the result
-        x$setinv(inv)
-        inv
+	x$setinv(inv)
+	inv
 }
