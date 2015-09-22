@@ -65,7 +65,7 @@ cacheSolve <- function(x, ...) {
         }
 		
 	## otherwise, get the matrix and solve it
-        ma <- x$get()
+        mat <- x$get()
         inv <- solve(mat)
 		
 	## set the new inverse and return the result
