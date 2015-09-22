@@ -2,6 +2,7 @@
 ## Lexical Scoping of R Programming Course on Coursera.
 ## Name: Akram Faisal
 ## Email: akramfaisal@gmail.com
+## Date: 22/09/2015
 
 ## The task is to create a matrix inverse caching function. Inverse
 ## of a matrix is usually costly to compute. Therefore, is the
